@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+for (var ${1:counter} = ${2:how_many}, ${1:counter} ${3:condition}, ${1:counter} = ${1:counter} ${4:operation})  {
+	${5:code}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>for</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.golo</scope>
+	<description>for (next)</description>
+</snippet>

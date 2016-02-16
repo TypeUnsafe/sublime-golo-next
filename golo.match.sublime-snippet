@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+match {
+	when ${1:predicate} then ${2:value}
+	otherwise ${3:value}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mat</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.golo</scope>
+	<description>match</description>
+</snippet>

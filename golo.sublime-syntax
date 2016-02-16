@@ -1,0 +1,75 @@
+%YAML 1.2
+---
+name: golo
+file_extensions: [golo]
+scope: source.golo
+
+
+contexts:
+  main:
+    - match: \b(if|then|else|match|while|for|foreach|do|return|when|otherwise|where|break|continue)\b
+      scope: keyword.control.golo
+    - match: '"'
+      push: string
+    - match: \b[0-9]+\b
+      scope: constant.numeric.golo
+    - match: \b(var|let|val|local|extends|implements|overrides|interfaces|Observable|DynamicVariable|Option|Result|Some|Error|DynamicObject)\b
+      scope: storage.modifier.golo
+    - match: \b(try|catch|finally|throw|raise)\b
+      scope: keyword.control.catch-exception.golo
+    - match: \.
+      scope: keyword.operator.dot.golo
+    - match: "\\:"
+      scope: keyword.operator.colon.golo
+    - match: (==|!=|<=|>=|<>|<|>|\?:)
+      scope: keyword.operator.comparison.golo
+    - match: (=)
+      scope: keyword.operator.assignment.golo 
+    - match: \b(in|not|and|or|is|isnt|as|oftype)\b
+      scope: keyword.operator.golo
+    - match: (!|&&)
+      scope: keyword.operator.logical.golo
+    - match: (-|\+|\*|/|%)
+      scope: keyword.operator.arithmetic.golo
+    - match: \b(function|fun|module)\b
+      scope: support.function.golo
+    - match: \b(each|find|filter|reduce|define)\b
+      scope: support.method.golo        
+    - match: \b(struct|range\[|tuple\[|array\[|map\[|set\[|vector\[|list\[)|\[|\]|\b 
+      scope: support.class.golo      
+    - match: (\{|\}|@|\(|\)|\|) 
+      scope: support.class.golo
+    - match: \b(println|print|readln|readpwd|pimp|spawn|send|shutdown|augment|AdapterFabric|Thread|Promise|promise|import|fileToText|textToFile)\b
+      scope: keyword.other.golo
+    - match: \b(if|then|else|match|while|for|foreach|do|return|when|otherwise|where|break|continue)\b
+      scope: keyword.control.golo
+    - match: \b(try|catch|finally|throw|raise)\b
+      scope: keyword.control.catch-exception.golo
+    - match: \b(true|false|null|super)\b
+      scope: constant.language.golo
+    - match: \b(this|self)\b
+      scope: constant.other.golo
+
+  prototype:
+    - include: comments
+
+  string:
+    - meta_scope: string.quoted.double.golo
+    - match: \\.
+      scope: constant.character.escape.golo
+    - match: '"'
+      pop: true  
+
+  comments:
+    - match: (#).*$\n?
+      scope: comment.line.number-sign.golo
+    - match: ----
+      scope: punctuation.definition.comment.begin.js
+      push:
+        - meta_scope: comment.block.js
+        - match: ----
+          scope: punctuation.definition.comment.end.js
+          pop: true
+
+
+

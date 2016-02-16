@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+augment ${1:something} {
+	function ${2:name} = |this| {
+
+	}
+} 
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>augment</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.golo</scope>
+	<description>augment/pimp</description>
+</snippet>
